@@ -12,7 +12,8 @@ public class Itinerario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_itinerario;
+    @Column(name = "id_itinerario")
+    private Long idItinerario;
 
     @OneToMany(mappedBy = "itinerario")
     private List<Pasajero> pasajeros;
@@ -25,6 +26,7 @@ public class Itinerario {
     @JoinColumn(name = "id_bus")
     private Bus bus;
 
-    @OneToMany(mappedBy = "itinerario") // Relacionada con la clase Pasaje
+    @OneToMany(mappedBy = "itinerario")
     private List<Pasaje> pasajes;
 }
+

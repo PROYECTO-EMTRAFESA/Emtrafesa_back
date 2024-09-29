@@ -11,16 +11,17 @@ public class ClienteCorreo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_ClienteCorreo;
+    @Column(name = "id_cliente_correo")
+    private Long idClienteCorreo;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "tipo", length = 10)
     private TipoCorreo tipo;
 
+    @Column(name = "correo", length = 100, nullable = false)
     private String correo;
 
     @ManyToOne
-    @JoinColumn(name = "id_Cliente")
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
-
 }
-

@@ -10,8 +10,9 @@ public class TipoDocumento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_tipo_documento;
+    @Column(name = "id_tipo_documento")
+    private Long idTipoDocumento;
 
+    @Column(name = "tipo", length = 50, nullable = false) // Ej: "DNI", "Pasaporte", etc.
     private String tipo;
 }
-

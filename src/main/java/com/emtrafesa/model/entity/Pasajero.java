@@ -12,23 +12,31 @@ public class Pasajero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_pasajero;
+    @Column(name = "id_pasajero")
+    private Long idPasajero;
 
+    @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
-    private String apellido_paterno;
-    private String apellido_materno;
+
+    @Column(name = "apellido_paterno", length = 50, nullable = false)
+    private String apellidoPaterno;
+
+    @Column(name = "apellido_materno", length = 50, nullable = false)
+    private String apellidoMaterno;
+
+    @Column(name = "sexo", length = 1, nullable = false) // M para Masculino, F para Femenino
     private String sexo;
-    private Date fecha_nacimiento;
+
+    @Column(name = "fecha_nacimiento", nullable = false)
+    private Date fechaNacimiento;
 
     @OneToMany(mappedBy = "pasajero")
-    private List<DocumentoIdentidadPasajero> documentosIdentidadpasajero;
+    private List<DocumentoIdentidadPasajero> documentosIdentidadPasajero;
 
     @OneToMany(mappedBy = "pasajero")
     private List<PasajeroTelefono> pasajeroTelefonos;
 
     @ManyToOne
-    @JoinColumn(name = "id_itinerario")
+    @JoinColumn(name = "id_itinerario", nullable = false)
     private Itinerario itinerario;
-
 }
-

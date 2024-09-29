@@ -11,11 +11,14 @@ public class ClienteTelefono {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Cliente_Telefono;
+    @Column(name = "id_cliente_telefono")
+    private Long idClienteTelefono;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "tipo", length = 10)
     private TipoTelefono tipo;
 
+    @Column(name = "numero", length = 15, nullable = false)
     private String numero;
 
     @ManyToOne

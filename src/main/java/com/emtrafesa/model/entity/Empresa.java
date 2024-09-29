@@ -12,13 +12,18 @@ public class Empresa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Empresa;
+    @Column(name = "id_empresa")
+    private Long idEmpresa;
 
-    private String nombre_Empresa;
+    @Column(name = "nombre_empresa", length = 100, nullable = false)
+    private String nombreEmpresa;
+
+    @Column(name = "ruc", length = 11, nullable = false)
     private String ruc;
-    private String razon_social;
+
+    @Column(name = "razon_social", length = 150)
+    private String razonSocial;
 
     @OneToMany(mappedBy = "empresa")
     private List<Pasaje> pasajes;
-
 }

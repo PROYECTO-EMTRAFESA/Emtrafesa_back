@@ -10,13 +10,18 @@ public class Pago {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_Pago;
+    @Column(name = "id_pago")
+    private Long idPago;
 
+    @Column(name = "importe", nullable = false)
     private Double importe;
-    private String numero_tarjeta;
+
+    @Column(name = "numero_tarjeta", length = 16, nullable = false) // Longitud común de tarjetas de crédito
+    private String numeroTarjeta;
+
+    @Column(name = "moneda", length = 3, nullable = false) // ISO 4217 currency codes (ej: USD, EUR, etc.)
     private String moneda;
 
     @OneToOne(mappedBy = "pago")
     private Pasaje pasaje;
-
 }

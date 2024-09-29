@@ -10,9 +10,11 @@ public class Escalas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_escalas;
+    @Column(name = "id_escalas")
+    private Long idEscalas;
 
-    private int numero_escalas;
+    @Column(name = "numero_escalas", nullable = false)
+    private int numeroEscalas;
 
     @ManyToOne
     @JoinColumn(name = "id_ruta")

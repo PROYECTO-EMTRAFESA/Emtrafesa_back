@@ -10,16 +10,17 @@ public class DocumentoIdentidadCliente {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id_documento_identidad_cliente;
+        @Column(name = "id_documento_identidad_cliente")
+        private Long idDocumentoIdentidadCliente;
 
         @ManyToOne
         @JoinColumn(name = "id_tipo_documento")
         private TipoDocumento tipoDocumento;
 
-        private int numero;
+        @Column(name = "numero", length = 20, nullable = false)
+        private String numero;
 
         @ManyToOne
-        @JoinColumn(name = "id_Cliente")
+        @JoinColumn(name = "id_cliente")
         private Cliente cliente;
-    }
-
+}

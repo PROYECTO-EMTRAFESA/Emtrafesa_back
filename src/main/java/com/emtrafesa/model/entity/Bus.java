@@ -10,8 +10,10 @@ public class Bus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_bus;
+    @Column(name = "id_bus")
+    private Long idBus;
 
+    @Column(name = "servicio", length = 50, nullable = false)
     private String servicio;
 
     @OneToOne

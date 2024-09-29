@@ -10,8 +10,12 @@ public class DetalleBus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_detalle_bus;
+    @Column(name = "id_detalle_bus")
+    private Long idDetalleBus;
 
+    @Column(name = "asientos", nullable = false)
     private int asientos;
+
+    @Column(name = "ambiente", length = 50)
     private String ambiente;
 }

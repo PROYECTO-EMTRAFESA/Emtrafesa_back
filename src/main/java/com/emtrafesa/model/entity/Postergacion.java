@@ -12,15 +12,15 @@ public class Postergacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_postergacion;
+    @Column(name = "id_postergacion")
+    private Long idPostergacion;
 
-    // LocalDate para almacenar solo la fecha
-    private LocalDate nueva_fecha_salida;
+    @Column(name = "nueva_fecha_salida", nullable = false)
+    private LocalDate nuevaFechaSalida;
 
-    // LocalTime para almacenar solo la hora
-    private LocalTime nueva_hora_salida;
+    @Column(name = "nueva_hora_salida", nullable = false)
+    private LocalTime nuevaHoraSalida;
 
     @OneToOne(mappedBy = "postergacion")
     private Pasaje pasaje;
 }
-
